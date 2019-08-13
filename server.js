@@ -19,9 +19,9 @@ app.use((req,res,next) => {           //middleware
     next();
 });
 
-app.use((req,res,next) => {
-    res.render('maintainence.hbs');
-});
+// app.use((req,res,next) => {
+//     res.render('maintainence.hbs');
+// });
 
 app.use(express.static(__dirname+"/public")); //middleware
 
@@ -58,6 +58,12 @@ app.get('/about',(req,res)=> {
     });
 });
 
+app.get('/projects',(req,res) => {
+    res.render('projects.hbs',{
+        pageTitle:'Projects Page'
+    });
+});
+
 app.get('/bad',(req,res)=> {
     res.send({
         errorMsg : 'Error Handling Request'
@@ -67,3 +73,5 @@ app.get('/bad',(req,res)=> {
 app.listen(port,()=>{
     console.log(`Server is up at port ${port}`);
 });
+
+
